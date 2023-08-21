@@ -1,0 +1,12 @@
+mysql:
+  host: 127.0.0.1
+  port: 3306
+  db: gvb_db
+  user: root
+  password: admin@2023
+  log_level: dev
+system:
+  host: 0.0.0.0
+  post: 8080
+  env: dev
+

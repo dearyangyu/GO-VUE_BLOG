@@ -5,8 +5,17 @@ mysql:
   user: root
   password: admin@2023
   log_level: dev
+
 system:
   host: 0.0.0.0
-  post: 8080
+  port: 8080
   env: dev
+
+logger:
+  level: info
+  prefix: "[gvb]"
+  director: log
+  show_line: true
+  log_in_console:
+
 

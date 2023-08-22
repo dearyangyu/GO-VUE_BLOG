@@ -23,6 +23,6 @@ func InitConf() {
 		log.Fatal("Config Init Unmarshal: %s", err)
 	}
 	log.Println("Config yamlFile load Init success.")
-	fmt.Println(c)
+	// fmt.Println(c)
 	global.Config = c
 }

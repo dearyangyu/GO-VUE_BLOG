@@ -1,8 +1,8 @@
 mysql:
-  host: 127.0.0.1
+  host: 192.168.0.108
   port: 3306
   db: gvb_db
-  user: root
+  user: PipelineCN
   password: admin@2023
   log_level: dev
 

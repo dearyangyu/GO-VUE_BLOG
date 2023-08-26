@@ -9,6 +9,7 @@ package main
 import (
 	"Go-blog-server/core"
 	"Go-blog-server/global"
+	"Go-blog-server/router"
 	"fmt"
 
 	"github.com/sirupsen/logrus"
@@ -33,4 +34,9 @@ func main() {
 	global.DB = core.InitGorm()
 	fmt.Println(global.DB)
 
+	router := router.InitRouter()
+
+	addr := global.Config.System.Addr()
+	global.Log.Infof("gvb_server 运行在: %s", addr)
+	router.Run(addr)
 }

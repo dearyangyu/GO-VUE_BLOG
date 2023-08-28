@@ -8,6 +8,7 @@ package main
 
 import (
 	"Go-blog-server/core"
+	"Go-blog-server/flag"
 	"Go-blog-server/global"
 	"Go-blog-server/router"
 	"fmt"
@@ -34,9 +35,20 @@ func main() {
 	global.DB = core.InitGorm()
 	fmt.Println(global.DB)
 
+	// 命令行参数绑定
+	option := flag.Parse()
+	if flag.IsWebStop(option) {
+		flag.SwitchOption(option)
+		return
+	}
+
 	router := router.InitRouter()
 
 	addr := global.Config.System.Addr()
 	global.Log.Infof("gvb_server 运行在: %s", addr)
-	router.Run(addr)
+	err := router.Run(addr)
+
+	if err != nil {
+		global.Log.Fatalf(err.Error())
+	}
 }
